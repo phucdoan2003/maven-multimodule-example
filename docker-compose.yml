@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/asm
+      SPRING_DATASOURCE_USERNAME: asm
+      SPRING_DATASOURCE_PASSWORD: asm
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_DB: asm
+      POSTGRES_USER: asm
+      POSTGRES_PASSWORD: asm
+
+  redis:
+    image: redis:latest
+
