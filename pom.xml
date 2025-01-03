@@ -13,6 +13,7 @@
         <module>main</module>
         <module>template</module>
         <module>template2</module>
+        <module>auth</module>
     </modules>
 
     <properties>
@@ -49,6 +50,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
             <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>3.3.2</version>
         </dependency>
     </dependencies>
 

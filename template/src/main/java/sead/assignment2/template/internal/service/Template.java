@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 import sead.assignment2.template.external.dto.ExternalTemplateDto;
 import sead.assignment2.template.internal.dto.InternalTemplateDto;
 
+import java.io.Serializable;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-class Template implements InternalTemplateDto, ExternalTemplateDto {
+class Template implements InternalTemplateDto, ExternalTemplateDto, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

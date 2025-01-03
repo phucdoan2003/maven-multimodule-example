@@ -4,3 +4,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  cache:
+    type: redis
+  data:
+    redis:
+      host: redis
+      port: 6379

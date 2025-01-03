@@ -6,6 +6,7 @@ module template {
     requires spring.data.jpa;
     requires spring.beans;
     requires spring.data.commons;
+    requires spring.data.redis;
 
     exports sead.assignment2.template.external.service;
     exports sead.assignment2.template.external.dto;

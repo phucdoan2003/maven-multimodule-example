@@ -1,6 +1,7 @@
 package sead.assignment2.template.internal.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,23 +20,25 @@ class TemplateServiceImpl implements InternalTemplateService, ExternalTemplateSe
 
 
     @Override
-    public InternalTemplateDto createTemplate(SaveTemplateRequestDto dto) {
+    public Template createTemplate(SaveTemplateRequestDto dto) {
         return repository.save(new Template(null, dto.getFirstName(), dto.getLastName()));
     }
 
     @Override
+    @Cacheable("templates")
     public Page<InternalTemplateDto> getTemplates(int page, int limit) {
         Pageable pageable = PageRequest.of(page, limit);
         return repository.findAll(pageable).map(template -> template);
     }
 
     @Override
-    public InternalTemplateDto getTemplateById(Long id) {
+    @Cacheable("templates")
+    public Template getTemplateById(Long id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Template not found"));
     }
 
     @Override
-    public InternalTemplateDto updateTemplateById(Long id, SaveTemplateRequestDto dto) {
+    public Template updateTemplateById(Long id, SaveTemplateRequestDto dto) {
         Template template = repository.findById(id).orElseThrow(() -> new RuntimeException("Template not found"));
 
         if (dto.getFirstName() != null) {
