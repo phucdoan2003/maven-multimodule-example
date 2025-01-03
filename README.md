@@ -1,11 +1,12 @@
 When creating another module, change its parents according to the template in pom.xml</br>
 Then add it as a dependency in the main module pom.xml, like this<br/>
 
-    <dependency>
+    <parent>
         <groupId>sead.assignment2</groupId>
-        <artifactId>template</artifactId>
+        <artifactId>backend</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
 Then add its execution in the build process for installing the jar file as a dependency in the main module pom.xml, like this:</br>
 
