@@ -1,5 +1,5 @@
-When creating another module, change its parents according to the template in pom.xml
-Then add it as a dependency in the main module pom.xml, like this
+When creating another module, change its parents according to the template in pom.xml</br>
+Then add it as a dependency in the main module pom.xml, like this<br/>
 
     <dependency>
         <groupId>sead.assignment2</groupId>
@@ -7,7 +7,7 @@ Then add it as a dependency in the main module pom.xml, like this
         <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
-Then add its execution in the build process for installing the jar file as a dependency in the main module pom.xml, like this:
+Then add its execution in the build process for installing the jar file as a dependency in the main module pom.xml, like this:</br>
 
     <execution>
         <id>install-template2</id>
@@ -24,7 +24,14 @@ Then add its execution in the build process for installing the jar file as a dep
         </configuration>
     </execution>
 
-Then build with mvn clean packages -DskipTests
-Then run with docker-compose up --build
+Build:
+```
+mvn clean packages -DskipTests
+```
+
+Run (with Docker):
+```
+docker-compose up --build
+```
 
 
