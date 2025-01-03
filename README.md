@@ -8,26 +8,19 @@ Then add it as a dependency in the main module pom.xml, like this<br/>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-Then add its execution in the build process for installing the jar file as a dependency in the main module pom.xml, like this:</br>
+Then add it as a module in the project pom.xml like this:
 
-    <execution>
-        <id>install-template2</id>
-        <goals>
-            <goal>install-file</goal>
-        </goals>
-        <configuration>
-            <groupId>sead.assignment2</groupId>
-            <artifactId>template2</artifactId>
-            <version>1.0</version>
-            <packaging>jar</packaging>
-            <file>../template2/target/template2-0.0.1-SNAPSHOT.jar</file>
-            <generatePom>true</generatePom>
-        </configuration>
-    </execution>
+    <modules>
+        <module>main</module>
+        <module>template</module>
+        <module>template2</module>
+        <module>NEW MODULE HERE</module>
+    </modules>
+
 
 Build:
 ```
-mvn clean packages -DskipTests
+mvn clean install
 ```
 
 Run (with Docker):
