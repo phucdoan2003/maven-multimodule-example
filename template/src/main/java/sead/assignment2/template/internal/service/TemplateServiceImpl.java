@@ -20,6 +20,7 @@ class TemplateServiceImpl implements InternalTemplateService, ExternalTemplateSe
 
 
     @Override
+    @Cacheable("templates")
     public Template createTemplate(SaveTemplateRequestDto dto) {
         return repository.save(new Template(null, dto.getFirstName(), dto.getLastName()));
     }
@@ -38,6 +39,7 @@ class TemplateServiceImpl implements InternalTemplateService, ExternalTemplateSe
     }
 
     @Override
+    @Cacheable("templates")
     public Template updateTemplateById(Long id, SaveTemplateRequestDto dto) {
         Template template = repository.findById(id).orElseThrow(() -> new RuntimeException("Template not found"));
 
